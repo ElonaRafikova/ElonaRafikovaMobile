@@ -1,0 +1,32 @@
+
+1.	I setup project that has been discussed in the class. Both tests (native and web) run successfully.
+
+2.	For existing native mobile autotest I tried to use other locators:
+•	driver.findElementByXPath("//android.widget.Button[@content-desc='Add Contact']")
+•	driver.findElement(By.className("android.widget.Button"))
+
+ I defined these locators using Appium Inspector. There were not any differences with id version. 
+
+3.	I modified existing tests to run on a real device. For this capability “deviceName” should be changed. It can be changed in that way:
+
+capabilities.setCapability("deviceName","serial_number_of_device")
+
+4.	I connected a real device to Appium and run tests with these steps:
+•	Enable development options on device
+•	Enable “USB debugging” 
+•	Set “USB configuration” to MTP
+•	Connect device to computer by USB 
+•	Open command-line terminal
+•	Use adb devices to verify connection
+•	Get number of device and set it in capability “deviceName” in test
+•	Run Appium server
+•	Build project with Maven 
+•	Run test with Idea’s menu
+The only difference was with native test. In ContactManager app there were contacts from my device and in emulator the list was clear.
+
+5.	What should be changed in project in my opinion – why – and how: 
+•	No checks – now it’s not tests – include checks 
+•	Hardcoded values – make tests hard to support – put properties in proprieties file
+•	Thread sleep – tests is real-time – remove thread sleep 
+•	Absolute paths – make tests non-portable – put properties in proprieties file
+•	Structure – all together (for example setup with tests in test directory) – put setup in src\java, different test for native and web in src\test
