@@ -1,0 +1,20 @@
+
+1.	Rewrite (complete) Driver using “singleton” pattern. Are there any advantages?
+    •	I rewrote Driver using “singleton” pattern. The main advantage of having one instance of driver is 
+      that we can easily manage it. We can be sure that we close, open, modified needed instance of driver.
+  
+2.	Suggest improvements for .properties reading. What are the purposes?
+    •	Except using two different files native.properties and web.properties, I would suggest to move code with setting 
+      desired capabilities from Driver.class to TestProperties.class, and in Driver.class leave only initialization of driver. 
+      Thus, we will have logic related to properties in TestProperties.class.
+  
+3.	Add checks of other fields and their titles (Contact Name, Contact phone) in “native” test
+    •	I added checks of fields and titles in “native” test.
+
+4.	Optional: Add keyboard presence check  in “native” test.
+
+5.	Which checks would you place in the “web” test?
+    •	I would place checks of logo, main text under logo, availability of three panels, headers of these panels.
+
+6.	Implement checks for “web” test in code and try to use
+    •	I implemented these checks and run the tests.
