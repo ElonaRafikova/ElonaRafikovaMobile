@@ -1,7 +1,6 @@
 package scenarios.hw2;
 
 import enums.PropertiesFile;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -11,30 +10,28 @@ import java.io.IOException;
 
 @Test
 public class Hooks extends Driver {
-    /**
-     * Required variables will be initialized by inherited constructor
-     *
-     * @throws IOException
-     */
-    protected Hooks() throws IOException {
+
+    protected Hooks() {
         super();
     }
 
-    @BeforeSuite(description = "Prepare driver to run test(s)", groups = "native")
+    @BeforeSuite(description = "Prepare driver to run native test(s)", groups = "native")
     public void setUpNative() throws Exception {
-        prepareDriver(PropertiesFile.NATIVE);
+        setPropertiesFile(PropertiesFile.NATIVE);
+        prepareDriver();
         System.out.println("Driver prepared");
 
     }
 
-    @BeforeSuite(description = "Prepare driver to run test(s)", groups = "webTests")
+    @BeforeSuite(description = "Prepare driver to run web test(s)", groups = "web")
     public void setUpWeb() throws Exception {
-        prepareDriver(PropertiesFile.WEB);
+        setPropertiesFile(PropertiesFile.WEB);
+        prepareDriver();
         System.out.println("Driver prepared");
 
     }
 
-    @AfterSuite(description = "Close driver on all tests completion", groups = {"native", "webTests"})
+    @AfterSuite(description = "Close driver on all tests completion", groups = {"native", "web"})
     public void tearDown() throws Exception {
         driver().quit();
         System.out.println("Driver closed");
