@@ -4,9 +4,11 @@
       that we can easily manage it. We can be sure that we close, open, modified needed instance of driver.
   
 2.	Suggest improvements for .properties reading. What are the purposes?
-    •	Except using two different files native.properties and web.properties, I would suggest to move code with setting 
+    •	Except using two different files native.properties and web.properties, we can make TestProperties.class not parent 
+      of Driver.class but field in Driver.class for encapsulation. Also we can move code with setting 
       desired capabilities from Driver.class to TestProperties.class, and in Driver.class leave only initialization of driver. 
       Thus, we will have logic related to properties in TestProperties.class.
+      
   
 3.	Add checks of other fields and their titles (Contact Name, Contact phone) in “native” test
     •	I added checks of fields and titles in “native” test.
