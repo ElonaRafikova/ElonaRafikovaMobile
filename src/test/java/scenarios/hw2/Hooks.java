@@ -35,6 +35,7 @@ public class Hooks extends Driver {
     public void tearDown() throws Exception {
         driver().quit();
         System.out.println("Driver closed");
+        
     }
 
 }
