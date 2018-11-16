@@ -88,7 +88,6 @@ public class Driver extends TestProperties {
 
         // Init driver for local Appium server with capabilities have been set
         if (driverSingle == null) driverSingle = new AppiumDriver(new URL(DRIVER), capabilities);
-
     }
 
 }
