@@ -37,7 +37,7 @@ public class Driver extends TestProperties {
     }
 
     private void prepareWait() throws Exception {
-        waitSingle = new WebDriverWait(driver(), 10);
+        if (waitSingle == null) waitSingle = new WebDriverWait(driver(), 10);
     }
 
     protected void prepareDriver() throws Exception {
@@ -87,7 +87,7 @@ public class Driver extends TestProperties {
         }
 
         // Init driver for local Appium server with capabilities have been set
-        driverSingle = new AppiumDriver(new URL(DRIVER), capabilities);
+        if (driverSingle == null) driverSingle = new AppiumDriver(new URL(DRIVER), capabilities);
 
     }
 
