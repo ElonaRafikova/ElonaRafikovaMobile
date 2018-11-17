@@ -4,9 +4,11 @@ Locally installed Appium DT has no need in these parameters, but for Appium serv
     Parameters added.
     a.	Or try to use autoLaunch capability with app as before. Does this approach work?
         No, this approach doesn't work for me.
-2.	Change settings to run web test on a certain iOS device on Mobile Test Farm. Run test with your changes. Did test pass?
+2.	Change settings to run web test on a certain iOS device on Mobile Test Farm. Run test with your changes. 
+    Did test pass?
     Yes, test passed 
-3.	Change settings to run native test on a certain/random Android device on Mobile Test Farm. Run test with your changes. Did test pass?
+3.	Change settings to run native test on a certain/random Android device on Mobile Test Farm. Run test with your changes. 
+    Did test pass?
     Yes, test passed 
 4.	What’s wrong with our code? How to fix/improve it? Implement your suggestions.
     Firstly, I remove all hardcoded strings to enums of fields.
