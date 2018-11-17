@@ -2,7 +2,9 @@ package enums;
 
 public enum PropertiesFile {
     WEB("webtests.properties"),
-    NATIVE("nativetests.properties");
+    NATIVE("nativetests.properties"),
+    WEB_IPHONE(""),
+    NATIVE_ANDROID("");
 
     private String type;
 
