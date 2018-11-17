@@ -14,3 +14,4 @@ Locally installed Appium DT has no need in these parameters, but for Appium serv
     Firstly, I remove all hardcoded strings to enums of fields.
     Secondly, I moved TestProperties.class from parent to field of Driver.class and made all reading properties in TestProperties. 
     And in Driver.class leave initialisation with capabilities that TestPropeties provide.
+    Thirdly, I made 2 new properties file for certain devices 
