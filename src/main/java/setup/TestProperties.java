@@ -2,6 +2,7 @@ package setup;
 
 import enums.Capabilities;
 import enums.PropertiesFile;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -32,7 +33,7 @@ class TestProperties {
     private String UDID;
     private static final String ANDRIOD = "Android";
     private static final String IOS = "iOS";
-    private static final String http = "http://";
+    private static final String http = "https://";
 
     //set needed type of properties for web or native
     protected void setPropertiesFile(PropertiesFile file) {
@@ -101,14 +102,19 @@ class TestProperties {
         // Setup type of application: mobile, webTests (or hybrid)
         if (AUT != null && SUT == null) {
             // Native
-            File app = new File(AUT);
-            capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-            capabilities.setCapability(Capabilities.APP_PACKAGE.getText(), APP_PACKAGE);
-            capabilities.setCapability(Capabilities.APP_ACTIVITY.getText(), APP_ACTIVITY);
+
+            //remote
+            if (APP_ACTIVITY != null && APP_PACKAGE != null) {
+                capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, APP_PACKAGE);
+                capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, APP_ACTIVITY);
+            } else {
+                File app = new File(AUT);
+                capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+            }
+
         } else if (SUT != null && AUT == null) {
             // Web
             capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
-
             File drivers = new File(DRIVERS.getText());
             capabilities.setCapability(CHROME_DIR.getText(), drivers.getAbsolutePath());
             File mapping = new File(MAPPING.getText());
