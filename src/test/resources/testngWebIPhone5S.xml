@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <parameter name="properties" value="IPhone5S_webtests.properties"/>
+    <test name="Test">
+        <groups>
+            <run>
+                <include name="web"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="scenarios.hw2.webTests.SimpleWebTests"/>
+        </classes>
+    </test>
+</suite>
