@@ -3,10 +3,9 @@ package scenarios.hw2;
 import enums.PropertiesFile;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import setup.Driver;
-
-import java.io.IOException;
 
 @Test
 public class Hooks extends Driver {
@@ -16,16 +15,20 @@ public class Hooks extends Driver {
     }
 
     @BeforeSuite(description = "Prepare driver to run native test(s)", groups = "native")
-    public void setUpNative() throws Exception {
-        setPropertiesFile(PropertiesFile.NATIVE);
+    @Parameters("properties")
+    public void setUpNative(String properties) throws Exception {
+        PropertiesFile propertiesFile = PropertiesFile.find(properties);
+        setPropertiesFile(propertiesFile);
         prepareDriver();
         System.out.println("Driver prepared");
 
     }
 
     @BeforeSuite(description = "Prepare driver to run web test(s)", groups = "web")
-    public void setUpWeb() throws Exception {
-        setPropertiesFile(PropertiesFile.WEB);
+    @Parameters("properties")
+    public void setUpWeb(String properties) throws Exception {
+        PropertiesFile propertiesFile = PropertiesFile.find(properties);
+        setPropertiesFile(propertiesFile);
         prepareDriver();
         System.out.println("Driver prepared");
 
@@ -35,7 +38,7 @@ public class Hooks extends Driver {
     public void tearDown() throws Exception {
         driver().quit();
         System.out.println("Driver closed");
-        
+
     }
 
 }
