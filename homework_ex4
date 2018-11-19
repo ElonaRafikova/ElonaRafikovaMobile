@@ -1,17 +1,25 @@
+
 1.	Add support of appPackage and appActivity parameters for Android devices 
-(reading from a .properties file and then setting in the DesiredCapabilities). 
-Locally installed Appium DT has no need in these parameters, but for Appium server of Minsk Mobile Farm it’s mandatory.
+(reading from a .properties file and then setting in the DesiredCapabilities).
     Parameters added.
     a.	Or try to use autoLaunch capability with app as before. Does this approach work?
         No, this approach doesn't work for me.
+        Error appears :
+        Original error: The desired capabilities must include either an app, appPackage or browserName"
+        
 2.	Change settings to run web test on a certain iOS device on Mobile Test Farm. Run test with your changes. 
     Did test pass?
+    Create .properties file with needed properties and  .xml file l launch it with these properties.
     Yes, test passed 
 3.	Change settings to run native test on a certain/random Android device on Mobile Test Farm. Run test with your changes. 
     Did test pass?
+    Created .properties file with needed properties and .xml file to launch it with these properties.
     Yes, test passed 
 4.	What’s wrong with our code? How to fix/improve it? Implement your suggestions.
-    Firstly, I remove all hardcoded strings to enums of fields.
-    Secondly, I moved TestProperties.class from parent to field of Driver.class and made all reading properties in TestProperties. 
-    And in Driver.class leave initialisation with capabilities that TestPropeties provide.
-    Thirdly, I made 2 new properties file for certain devices 
+       1 Not good practice to have hardcoded values  ---- I remove all hardcoded strings to enums or fields.
+       2 For my opinion, logic related to reading and setting properties can moved to TestProperties.class. ----- I moved 
+         TestProperties.class from parent to field of Driver.class and made all reading properties in TestProperties. 
+         And in Driver.class leave initialisation with capabilities that TestPropeties provide.
+       3 No opportunities to run test with different .properties files for different devices ----- made BeforeSuite methods in 
+         Hooks parameterized (parameter .properties.file take from .xml file).
+       
