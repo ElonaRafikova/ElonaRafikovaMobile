@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import setup.Driver;
 
-import java.io.IOException;
 
 @Test
 public class Hooks extends Driver {
