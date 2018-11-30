@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import scenarios.hw2.Hooks;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
